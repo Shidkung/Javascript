@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div>
+        <h1>Search student info</h1>
+        <label for="name">Search name:</label>
+        <input type="text" placeholder="Name" id="name" name="name" required>
+        <label for="Year">Year:</label>
+        <input type="number" placeholder="Year" id="Year" name="Year" required><br>
+        <button type="submit" onclick="search()" id="button">search</button>
+    </div>
+    <div id="profile"></div>
+</body>
+<script>
+    function search() {
+        const name = document.getElementById("name").value
+        const year = document.getElementById('Year').value
+        const x = [{ name: 'Arisa', year: 20 }, { name: 'banti', year: 21 }]
+        const y = x.filter((a) => a.name == name || a.year == year)
+        const html = `<div>
+            <h1>${y[0].name}</h1>
+            <h2>${y[0].year}</h2>
+            </div>`
+        document.getElementById('profile').innerHTML = html
+    }
+</script>
+
+</html>
